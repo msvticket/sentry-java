@@ -168,7 +168,7 @@ public class SentryAppender extends AbstractAppender {
   }
 
   @NotNull
-  Sentry.OptionsConfiguration<SentryOptions> getOptionsConfiguration(
+  public Sentry.OptionsConfiguration<SentryOptions> getOptionsConfiguration(
       final @Nullable Sentry.OptionsConfiguration<SentryOptions> additionalOptionsConfiguration) {
     return options -> {
       options.setEnableExternalConfiguration(true);
@@ -192,7 +192,7 @@ public class SentryAppender extends AbstractAppender {
     };
   }
 
-  void start(final @NotNull Sentry.OptionsConfiguration<SentryOptions> optionsConfiguration) {
+  public void start(final @NotNull Sentry.OptionsConfiguration<SentryOptions> optionsConfiguration) {
     try {
       Sentry.init(optionsConfiguration);
     } catch (IllegalArgumentException e) {
